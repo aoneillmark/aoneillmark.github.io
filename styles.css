@@ -1,0 +1,12 @@
+body {
+  background-color: powderblue;
+}
+h1 {
+  color: blue;
+  font-family: "Comic Sans MS";
+}
+p {
+  color: red;
+  font-family: "Comic Sans MS";
+  border: 2px solid powderblue;
+}
