@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block title %}NAME_HERE | AI Solutions{% endblock %}
+
+{% block content %}
+    <header class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Welcome to <span class="highlight">NAME_HERE</span></h1>
+                    <p class="subtitle">AI Solutions • Machine Learning • Data Intelligence</p>
+                    <p class="description">Empowering businesses with cutting-edge artificial intelligence solutions that transform data into actionable insights.</p>
+                    <div class="cta-buttons">
+                        <a href="{{ url_for('products') }}" class="btn btn-primary">Our Solutions</a>
+                        <a href="{{ url_for('static', filename='files/whitepaper.pdf') }}" download="whitepaper.pdf" class="btn btn-secondary">Download Whitepaper</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="{{ url_for('static', filename='images/profile.jpg') }}" alt="NAME_HERE AI" class="profile-image" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="about section">
+            <div class="container">
+                <h2 class="section-title">About Us</h2>
+                <div class="about-content">
+                    <p>Founded in 2023, NAME_HERE is a pioneering AI startup focused on developing intelligent solutions for complex business challenges.</p>
+                    <p>Our team of expert data scientists and engineers is dedicated to creating AI-powered tools that deliver measurable value and competitive advantages for our clients.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="skills section">
+            <div class="container">
+                <h2 class="section-title">Our Services</h2>
+                <div class="skills-grid">
+                    <div class="skill-card">
+                        <i class="fas fa-robot"></i>
+                        <h3>AI Consultation</h3>
+                        <p>Strategic guidance on implementing AI solutions tailored to your business needs.</p>
+                    </div>
+                    <div class="skill-card">
+                        <i class="fas fa-brain"></i>
+                        <h3>Machine Learning</h3>
+                        <p>Custom ML models that adapt and improve with your growing dataset.</p>
+                    </div>
+                    <div class="skill-card">
+                        <i class="fas fa-chart-line"></i>
+                        <h3>Predictive Analytics</h3>
+                        <p>Transform historical data into valuable forecasts to drive better business decisions.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+{% endblock %}

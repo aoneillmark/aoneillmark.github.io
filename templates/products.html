@@ -1,0 +1,148 @@
+{% extends "base.html" %}
+
+{% block title %}Solutions | NAME_HERE{% endblock %}
+
+{% block content %}
+    <header class="page-header">
+        <div class="container">
+            <h1>Our <span class="highlight">Solutions</span></h1>
+            <p>Innovative AI technologies built to transform your business</p>
+        </div>
+    </header>
+
+    <main>
+        <section class="projects-section section">
+            <div class="container">
+                <div class="filter-tabs">
+                    <button class="filter-btn active" data-filter="all">All Solutions</button>
+                    <button class="filter-btn" data-filter="nlp">NLP & Text</button>
+                    <button class="filter-btn" data-filter="vision">Computer Vision</button>
+                    <button class="filter-btn" data-filter="analytics">Predictive Analytics</button>
+                </div>
+
+                <div class="projects-grid">
+                    <!-- Product Card 1 -->
+                    <div class="project-card" data-category="nlp">
+                        <div class="project-img">
+                            <img src="{{ url_for('static', filename='images/project1.jpg') }}" alt="Intelligent Document Processing" loading="lazy">
+                            <div class="project-overlay">
+                                <div class="project-links">
+                                    <a href="#" class="project-link"><i class="fas fa-eye"></i> View Demo</a>
+                                    <a href="#" class="project-link"><i class="fas fa-file-alt"></i> Case Study</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <h3>Intelligent Document Processing</h3>
+                            <p>Automated extraction and analysis of data from unstructured documents</p>
+                            <div class="project-tags">
+                                <span class="tag">NLP</span>
+                                <span class="tag">OCR</span>
+                                <span class="tag">Automation</span>
+                                <span class="tag">Data Extraction</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product Card 2 -->
+                    <div class="project-card" data-category="vision">
+                        <div class="project-img">
+                            <img src="{{ url_for('static', filename='images/project2.jpg') }}" alt="Visual Quality Inspection" loading="lazy">
+                            <div class="project-overlay">
+                                <div class="project-links">
+                                    <a href="#" class="project-link"><i class="fas fa-eye"></i> View Demo</a>
+                                    <a href="#" class="project-link"><i class="fas fa-file-alt"></i> Case Study</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <h3>Visual Quality Inspection</h3>
+                            <p>AI-powered defect detection system for manufacturing processes</p>
+                            <div class="project-tags">
+                                <span class="tag">Computer Vision</span>
+                                <span class="tag">Deep Learning</span>
+                                <span class="tag">Quality Control</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product Card 3 -->
+                    <div class="project-card" data-category="analytics">
+                        <div class="project-img">
+                            <img src="{{ url_for('static', filename='images/project3.jpg') }}" alt="Predictive Maintenance Platform" loading="lazy">
+                            <div class="project-overlay">
+                                <div class="project-links">
+                                    <a href="#" class="project-link"><i class="fas fa-eye"></i> View Demo</a>
+                                    <a href="#" class="project-link"><i class="fas fa-file-alt"></i> Case Study</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <h3>Predictive Maintenance Platform</h3>
+                            <p>Reduce downtime and maintenance costs with AI-driven failure prediction</p>
+                            <div class="project-tags">
+                                <span class="tag">Time Series</span>
+                                <span class="tag">Anomaly Detection</span>
+                                <span class="tag">IoT Integration</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product Card 4 -->
+                    <div class="project-card" data-category="nlp">
+                        <div class="project-img">
+                            <img src="{{ url_for('static', filename='images/project4.jpg') }}" alt="Customer Sentiment Analyzer" loading="lazy">
+                            <div class="project-overlay">
+                                <div class="project-links">
+                                    <a href="#" class="project-link"><i class="fas fa-eye"></i> View Demo</a>
+                                    <a href="#" class="project-link"><i class="fas fa-file-alt"></i> Case Study</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <h3>Customer Sentiment Analyzer</h3>
+                            <p>Real-time analysis of customer feedback across multiple channels</p>
+                            <div class="project-tags">
+                                <span class="tag">Sentiment Analysis</span>
+                                <span class="tag">Real-time Processing</span>
+                                <span class="tag">Customer Experience</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    // Project filtering functionality
+    document.addEventListener('DOMContentLoaded', function() {
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const projectCards = document.querySelectorAll('.project-card');
+        
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                // Remove active class from all buttons
+                filterBtns.forEach(btn => btn.classList.remove('active'));
+                
+                // Add active class to clicked button
+                this.classList.add('active');
+                
+                // Get filter value
+                const filterValue = this.getAttribute('data-filter');
+                
+                // Filter projects
+                projectCards.forEach(card => {
+                    if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+    });
+</script>
+{% endblock %}
